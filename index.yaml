@@ -3,12 +3,12 @@ entries:
   pob-client-helm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-11-07T14:08:04.142384627+05:30"
+    created: "2023-11-06T15:29:30.866519126+05:30"
     description: A Helm chart for Kubernetes
-    digest: 79f805c38356d85174d6313e6d462e8c419f924cdfb392f82d7078455a5eec16
+    digest: 5d19718c0d6e45a0b7dc63380aa16711851874aaeb4e7533198b88cb9425423f
     name: pob-client-helm
     type: application
     urls:
-    - https://kaleidoscope-blockchain.github.io/charts-pob-prover/pob-client-helm-0.1.0.tgz
+    - pob-client-helm-0.1.0.tgz
     version: 0.1.0
-generated: "2023-11-07T14:08:04.141726321+05:30"
+generated: "2023-11-06T15:29:30.866045244+05:30"
