@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: witnesschain/pob_prover
+  repository: witnesschain/pob-prover
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -37,7 +37,7 @@ securityContext: {}
   #   - ALL
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
-  # runAsUser: 1000
+  # runAsUser: 999
 
 service:
   type: NodePort
@@ -79,14 +79,16 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
+volumes: 
+  - name: "pobconfig"
+    configMap:
+      name: "pobconfig"
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
+volumeMounts:
+  - name: "pobconfig"
+    mountPath: "/home/pobuser/pob-client/dart/config/pob/prover.json"
+    subPath: "prover.json"
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
