@@ -83,12 +83,17 @@ volumes:
   - name: "pobconfig"
     configMap:
       name: "pobconfig"
+  - name: config-data-volume
+    persistentVolumeClaim:
+      claimName: data-pvc
 
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - name: "pobconfig"
     mountPath: "/home/pobuser/pob-client/dart/config/pob/prover.json"
     subPath: "prover.json"
+  - mountPath: /home/pob-user/.config
+    name: config-data-volume
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
